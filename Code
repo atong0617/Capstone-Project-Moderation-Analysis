@@ -121,6 +121,13 @@ zvalues <- c(mean(data.TMT.SSMODEL$VO2max) - sd(data.TMT.SSMODEL$VO2max),
 emtrends(ss.model, specs = "VO2max", var = "PWV", at = list(VO2max = zvalues)) |> test()
 
 
+# JN-PLOT
+library(interactions)
+library(lmerTest)
+jn <- sim_slopes (ss.model, pred = PWV, modx = VO2max, jnplot = TRUE)
+jn$jnplot
+
+
 # Model 2 CRF and Stroop
 model.CRF.Stroop <- lm(Stroop_32 ~ PWV * VO2max + Age + Sex + BMI + MoCA, data.cog.phys.baseline)
 summary(model.CRF.Stroop)
