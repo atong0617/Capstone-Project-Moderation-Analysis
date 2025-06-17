@@ -1,4 +1,4 @@
- (!require("pacman")) install.packages("pacman") 
+if (!require("pacman")) install.packages("pacman") 
 pacman::p_load(dplyr, readxl, plyr, lme4,nlme, robustlmm, car, broom, lsmeans, ggplot2, psych, HLMdiag, tableone,mice) 
 
 data.cog <- read_excel("RVCI_MASTER_20240508.xlsx")
